@@ -19,7 +19,7 @@ namespace SistemaRecetas.Modelos
             
             if (LibrosRecetas.ContainsKey(nombreLibro))
             {
-                throw new InvalidOperationException($"El libro '{nombreLibro}' ya existe."); 
+                throw new InvalidOperationException($"El libro '{nombreLibro}' ya existe.");  
             }
             LibrosRecetas.Add(nombreLibro, new List<Receta>()); 
         }
