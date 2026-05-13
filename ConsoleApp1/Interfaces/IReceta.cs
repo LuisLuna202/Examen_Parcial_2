@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace ConsoleApp1.Interfaces
+
+
+
+public interface IReceta
 {
-    internal class IReceta
+    public string Nombre { get; set; }
+    public string Chef { get; set; }
+    public int TiempoMinutos { get; set; }
+    public string ToString()
     {
+        return ToString();
     }
 }
