@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConsoleApp1.Modelos;
+using SistemaRecetas.Modelos;
 
-namespace ConsoleApp1.Interfaces
+namespace SistemaRecetas.Interfaces
 {
-    internal class IExplorador
+    public interface IExportador
     {
+        void ExportarATxt(Usuario usuario, string rutaArchivo);
     }
 }
