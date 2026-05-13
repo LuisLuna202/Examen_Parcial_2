@@ -1,5 +1,4 @@
 ﻿using SistemaRecetas.Modelos;
-using SistemaRecetas.Modelos;
 
 namespace SistemaRecetas.Interfaces
 {
