@@ -39,7 +39,7 @@ namespace SistemaRecetas
 
             bool salir = false;
 
-            // 4. Menú Principal (8 opciones) [cite: 197]
+            // 4. Menú Principal (8 opciones) 
             while (!salir)
             {
                 Console.WriteLine($"\n--- MENÚ PRINCIPAL ---");
@@ -55,14 +55,10 @@ namespace SistemaRecetas
                 Console.Write("Seleccione una opción: ");
 
                  if (!int.TryParse(Console.ReadLine(), out int opcion)) 
-                {
-                    Console.WriteLine("Opción no válida.");
-                    continue;
-                }
-
+               
                 switch (opcion)
                 {
-                    case 1: // Mostrar recetas [cite: 198]
+                    case 1: // Mostrar recetas 
                     Console.WriteLine("\nRecetas en el catálogo:");
                     var catalogo = gestor.RecetasDisponibles;
                     for (int i = 0; i < catalogo.Count; i++)
@@ -88,7 +84,7 @@ namespace SistemaRecetas
                         Console.WriteLine($"Tiempo total de preparación en '{libroActual}': {tiempoTotal} min.");
                         break;
 
-                        case 3: // Búsqueda binaria [cite: 200, 157, 158]
+                        case 3: // Búsqueda binaria 
                             Console.Write("Nombre de la receta a buscar: ");
                             string busca = Console.ReadLine();
                             int resultadoIdx = gestor.BusquedaBinaria(busca);
@@ -139,11 +135,11 @@ namespace SistemaRecetas
                                     }
                                     break;
 
-                                    case 6: // Ver mis libros [cite: 207]
+                                    case 6: // Ver mis libros 
                                          usuarioActual.MostrarLibros(); 
                         break;
 
-                                        case 7: // Exportar a .txt [cite: 208, 178]
+                                        case 7: // Exportar a .txt 
                                             string ruta = $"{usuarioActual.Nombre}_Recetas.txt";
                                              servicio.Exportador.ExportarATxt(usuarioActual, ruta); 
                         break;
