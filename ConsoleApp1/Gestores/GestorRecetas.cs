@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SistemaRecetas.Interfaces;
+using SistemaRecetas.Modelos;
 
-namespace ConsoleApp1.Gestores
+namespace SistemaRecetas.Gestores
 {
     internal class Class1
     {
