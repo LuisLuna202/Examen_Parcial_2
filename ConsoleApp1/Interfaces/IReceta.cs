@@ -1,5 +1,4 @@
 
-﻿public interface IReceta
 ﻿
 namespace SistemaRecetas.Interfaces
 

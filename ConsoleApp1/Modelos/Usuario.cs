@@ -1,4 +1,4 @@
-﻿using ConsoleApp1.Interfaces;
+﻿using SistemaRecetas.Interfaces;
 
 namespace SistemaRecetas.Modelos
 {

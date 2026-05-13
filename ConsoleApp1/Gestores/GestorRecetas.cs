@@ -122,26 +122,9 @@ namespace SistemaRecetas.Gestores
         }
 
 
-        public int BusquedaBinaria(string nombre)
-        {
-            // 1. Ordenar por Nombre antes de buscar 
-            RecetasDisponibles = RecetasDisponibles.OrderBy(r => r.Nombre).ToList();
-
-            // 2. Ejecutar búsqueda binaria con StringComparison.OrdinalIgnoreCase 
-            int low = 0;
-            int high = RecetasDisponibles.Count - 1;
-
-            while (low <= high)
-            {
-                int mid = (low + high) / 2;
-                int compare = string.Compare(RecetasDisponibles[mid].Nombre, nombre, StringComparison.OrdinalIgnoreCase);
-
-                if (compare == 0) return mid; // Retorna el índice si la encuentra 
-                if (compare < 0) low = mid + 1;
-                else high = mid - 1;
-            }
-
-            return -1; // Retorna -1 si no la encuentra 
-        }
+namespace ConsoleApp1.Gestores
+{
+    internal class Class1
+    {
     }
 }

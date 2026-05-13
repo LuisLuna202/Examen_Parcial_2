@@ -1,6 +1,5 @@
-﻿using ConsoleApp1.Interfaces;
+﻿using SistemaRecetas.Interfaces;
 using SistemaRecetas.Modelos;
-using System.Collections.Generic;
 
 namespace SistemaRecetas.Interfaces
 {
