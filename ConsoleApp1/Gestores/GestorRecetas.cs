@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿
 using SistemaRecetas.Interfaces;
 using SistemaRecetas.Modelos;
 
@@ -13,7 +11,7 @@ namespace SistemaRecetas.Gestores
 
         public GestorRecetas()
         {
-           // Cada instancia tiene su propia lista de recetas [cite: 148]
+            // Cada instancia tiene su propia lista de recetas 
             RecetasDisponibles = new List<Receta>();
         }
 
@@ -28,20 +26,20 @@ namespace SistemaRecetas.Gestores
 
         public void EliminarReceta(Receta receta)
         {
-           RecetasDisponibles.Remove(receta);
+            RecetasDisponibles.Remove(receta);
         }
 
         public void EliminarPorIndice(int indice)
         {
             if (indice >= 0 && indice < RecetasDisponibles.Count)
             {
-                RecetasDisponibles.RemoveAt(indice); 
+                RecetasDisponibles.RemoveAt(indice);
             }
         }
 
         public List<Receta> BuscarPorNombre(string nombre)
         {
-           // Búsqueda parcial ignorando mayúsculas y minúsculas [cite: 150]
+            // Búsqueda parcial ignorando mayúsculas y minúsculas 
             return RecetasDisponibles
                 .Where(r => r.Nombre.Contains(nombre, StringComparison.OrdinalIgnoreCase))
                 .ToList();
@@ -49,12 +47,10 @@ namespace SistemaRecetas.Gestores
 
         public void LimpiarCatalogo()
         {
-             RecetasDisponibles.Clear(); 
+            RecetasDisponibles.Clear();
         }
 
-        #region Algoritmos de Ordenamiento
-
-        // QuickSort: Ordena la lista original por TiempoMinutos (Ascendente) [cite: 154, 155]
+        // QuickSort: Ordena la lista original por TiempoMinutos (Ascendente) 
         public void QuickSort(List<Receta> lista)
         {
             if (lista == null || lista.Count <= 1) return;
@@ -92,7 +88,7 @@ namespace SistemaRecetas.Gestores
             return i + 1;
         }
 
-       // MergeSort: Retorna una nueva lista ordenada por TiempoMinutos 
+        // MergeSort: Retorna una nueva lista ordenada por TiempoMinutos 
         public List<Receta> MergeSort(List<Receta> lista)
         {
             if (lista.Count <= 1) return lista.ToList();
@@ -120,11 +116,49 @@ namespace SistemaRecetas.Gestores
             result.AddRange(right.Skip(j));
             return result;
         }
+        public int BusquedaBinaria(string nombre)
+        {
+            // Ordenar por Nombre alfabéticamente
+            RecetasDisponibles = RecetasDisponibles
+                .OrderBy(r => r.Nombre)
+                .ToList();
 
+            int izquierda = 0;
+            int derecha = RecetasDisponibles.Count - 1;
 
-namespace ConsoleApp1.Gestores
-{
-    internal class Class1
-    {
+            while (izquierda <= derecha)
+            {
+                int medio = (izquierda + derecha) / 2;
+
+                int comparacion = string.Compare(
+                    RecetasDisponibles[medio].Nombre,
+                    nombre,
+                    StringComparison.OrdinalIgnoreCase
+                );
+
+                // Si encontró la receta
+                if (comparacion == 0)
+                {
+                    return medio;
+                }
+
+                // Buscar en la mitad izquierda
+                if (comparacion > 0)
+                {
+                    derecha = medio - 1;
+                }
+
+                // Buscar en la mitad derecha
+                else
+                {
+                    izquierda = medio + 1;
+                }
+            }
+
+            // No encontrada
+            return -1;
+        }
+
     }
+
 }
